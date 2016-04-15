@@ -1,0 +1,1 @@
+/** * Created with IntelliJ IDEA. * Project: java * Author: Kevin * Date: 16/4/15 * Time: 下午11:10 */public class Resource {	private int value;	public int getValue() {		return value;	}	public void setValue(int value) {		this.value = value;	}}
