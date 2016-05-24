@@ -1,0 +1,1 @@
+package DisruptorSample;import com.lmax.disruptor.EventFactory;/** * Created with IntelliJ IDEA. * Project: mobile-tracer-web * Author: Kevin * Date: 16/5/23 * Time: 下午4:02 */public class TestObjectFactory implements EventFactory<TestObject> {	@Override	public TestObject newInstance() {		return new TestObject();	}}
