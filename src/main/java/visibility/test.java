@@ -3,7 +3,7 @@ package Visibility;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created with IntelliJ IDEA. Project: mobile-tracer-web Author: Kevin Date:
+ * Created with IntelliJ IDEA. Project: test-jar Author: Kevin Date:
  * 16/5/23 Time: 下午2:58
  */
 
