@@ -13,6 +13,6 @@ public class CacheImpl implements Action {
     
     @Override
     public <T> void add(T t) {
-		System.out.println("add " + t + "to cache");    
+		System.out.println("add " + t + " to cache");
     }
 }

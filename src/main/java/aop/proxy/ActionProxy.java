@@ -1,7 +1,6 @@
 package aop.proxy;
 
 import aop.Action;
-import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Component;
  * Date: 16/8/14
  * Time: 上午10:36
  */
-@Component
 public class ActionProxy implements Action {
 
     private Action action;
@@ -33,5 +31,13 @@ public class ActionProxy implements Action {
 
     private void after(){
         System.out.println("after");
+    }
+
+    public Action getAction() {
+        return action;
+    }
+
+    public void setAction(Action action) {
+        this.action = action;
     }
 }

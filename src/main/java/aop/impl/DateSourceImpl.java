@@ -1,7 +1,6 @@
 package aop.impl;
 
 import aop.Action;
-import aop.annotion.Log;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,19 +14,8 @@ import org.springframework.stereotype.Component;
 public class DateSourceImpl implements Action {
 
     @Override
-    @Log
     public <T> void add(T t) {
-        before();
-		System.out.println("add" + t + "to db");
-        after();
-    }
-
-    private void before(){
-        System.out.println("before");
-    }
-
-    private void after(){
-        System.out.println("after");
+		System.out.println("add " + t + " to db");
     }
 
 }

@@ -1,4 +1,4 @@
-package AOP;
+package aop;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,4 +8,6 @@ package AOP;
  * Time: 上午10:31
  */
 public interface Action {
+
+	public <T> void add(T t);
 }

@@ -1,4 +1,9 @@
-package AOP.annotion;
+package aop.annotion;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,5 +12,8 @@ package AOP.annotion;
  * Date: 16/8/14
  * Time: 上午10:39
  */
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Log {
 }

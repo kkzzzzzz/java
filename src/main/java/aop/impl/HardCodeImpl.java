@@ -1,5 +1,7 @@
 package aop.impl;
 
+import aop.Action;
+
 /**
  * Created with IntelliJ IDEA.
  * Project: test-jar
@@ -7,5 +9,21 @@ package aop.impl;
  * Date: 16/8/14
  * Time: 上午11:11
  */
-public class HardCodeImpl {
+public class HardCodeImpl implements Action {
+    @Override
+    public <T> void add(T t) {
+        before();
+		System.out.println("add " + t + " to somewhere by hardCode");
+        after();
+    }
+
+
+    private void before(){
+        System.out.println("before");
+    }
+
+    private void after(){
+        System.out.println("after");
+    }
+
 }
