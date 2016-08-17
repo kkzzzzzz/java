@@ -1,7 +1,6 @@
 package aop.impl;
 
 import aop.Action;
-import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
  * Date: 16/8/14
  * Time: 上午10:32
  */
-@Component
 public class DateSourceImpl implements Action {
 
     @Override

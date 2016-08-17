@@ -16,5 +16,27 @@
 
 	<context:component-scan base-package="aop"/>
 
-    
+	<bean id="actionProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interfaces" value="aop.Action"/> <!-- 需要代理的接口 -->
+		<property name="target" ref="pureImpl"/>         <!-- 接口实现类 -->
+		<property name="interceptorNames">               <!-- 拦截器名称（也就是增强类名称，Spring Bean 的 id） -->
+			<list>
+				<value>actionAroundAdvice</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="introductionProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interfaces" value="aop.spring.Alarm"/> <!-- 需要代理的接口 -->
+		<property name="target" ref="pureImpl"/>         <!-- 接口实现类 -->
+		<property name="interceptorNames">               <!-- 拦截器名称（也就是增强类名称，Spring Bean 的 id） -->
+			<list>
+				<value>actionIntroductionAdvice</value>
+			</list>
+		</property>
+		<property name="proxyTargetClass" value="true"/>  <!-- 代理目标类pureImpl 这个时候会用 cglib代理而不是jdk的	（默认为 false，代理接口） -->
+	</bean>
+
+
 </beans>

@@ -8,6 +8,5 @@ package aop;
  * Time: 上午10:31
  */
 public interface Action {
-
-	public <T> void add(T t);
+	<T> void add(T t);
 }
