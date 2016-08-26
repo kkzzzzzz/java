@@ -19,25 +19,9 @@ public class LocalValue{
     public Long getValue() {
         return TIME_THREADLOCAL.get();
     }
-
-    public static void main(String[] args) throws Exception{
-
-        for(int i = 0; i< 5; i++) {
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    LocalValue localValue = new LocalValue();
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println(localValue.getValue());
-                }
-            });
-            thread.start();
-            thread.join();
-        }
+    
+    public void increaseValue(Long value){
+		TIME_THREADLOCAL.set(TIME_THREADLOCAL.get() + value);
     }
 
 }
