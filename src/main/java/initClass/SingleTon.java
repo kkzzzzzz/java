@@ -13,13 +13,18 @@ public class SingleTon {
 	public static int count2 = 0;
 
 	private SingleTon() {
-		count1++;
+        System.out.println("init static variable second");
+        count1++;
 		count2++;
 	}
 
 	public static SingleTon getInstance() {
 		return singleTon;
 	}
+
+    static {
+        System.out.println("init static block first");
+    }
 }
 
 class Test {
