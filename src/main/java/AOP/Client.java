@@ -34,6 +34,7 @@ public class Client {
 
     private static void staticProxy(){
         ActionProxy actionProxy = new ActionProxy(new DateSourceImpl());
+        System.out.println("代理对象：" + actionProxy.getClass());
         actionProxy.add("object");
         actionProxy.setAction(new CacheImpl());
         actionProxy.add("object");
@@ -48,8 +49,10 @@ public class Client {
          * they can not transform
          */
         Action proxy = dynamicProxy.getProxy();
+		System.out.println("代理对象：" + proxy.getClass());
         proxy.add("object");
         dynamicProxy.setTarget(new CacheImpl());
+        System.out.println("代理对象：" + proxy.getClass());
         proxy.add("object");
     }
 
