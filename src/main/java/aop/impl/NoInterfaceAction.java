@@ -1,0 +1,1 @@
+package aop.impl;import aop.annotion.Log;import org.springframework.stereotype.Component;/** * Created with IntelliJ IDEA. * Project: test-jar * Author: Kevin * Date: 2018/9/15 * Time: 下午8:43 */@Componentpublic class NoInterfaceAction {	@Log	public <T> void add(T t) {		System.out.println("add " + t + " to somewhere");	}}

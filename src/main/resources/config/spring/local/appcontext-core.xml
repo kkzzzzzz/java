@@ -12,7 +12,16 @@
 
 	<context:annotation-config/>
 
-	<aop:aspectj-autoproxy/>
+	<!--<aop:aspectj-autoproxy/>-->
+
+	<!--<bean id="timeHandler" class="aop.aopconfig.TimeAspect" />-->
+	<aop:config>
+		<aop:aspect id="time" ref="timeAspect">
+			<aop:pointcut id="addAllMethod" expression="execution(* aop.aopconfig.AopConfigInterface.*(..))" />
+			<aop:before method="printTime" pointcut-ref="addAllMethod" />
+			<aop:after method="printTime" pointcut-ref="addAllMethod" />
+		</aop:aspect>
+	</aop:config>
 
 	<context:component-scan base-package="aop"/>
 
@@ -37,6 +46,11 @@
 		</property>
 		<property name="proxyTargetClass" value="true"/>  <!-- 代理目标类pureImpl 这个时候会用 cglib代理而不是jdk的	（默认为 false，代理接口） -->
 	</bean>
+
+
+
+
+
 
 
 </beans>

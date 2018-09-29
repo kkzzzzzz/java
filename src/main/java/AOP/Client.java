@@ -3,6 +3,7 @@ package aop;
 import aop.impl.CacheImpl;
 import aop.impl.DateSourceImpl;
 import aop.impl.HardCodeImpl;
+import aop.impl.NoInterfaceAction;
 import aop.proxy.ActionProxy;
 import aop.proxy.CGLibDynamicProxy;
 import aop.proxy.DynamicProxy;
@@ -17,12 +18,12 @@ import aop.proxy.DynamicProxy;
 public class Client {
 
     public static void main(String[] args) {
-        System.out.println("=============hardCode=============");
-        hardCode();
-        System.out.println("=============staticProxy=============");
-        staticProxy();
-        System.out.println("=============JDKProxy=============");
-        dynamicProxy();
+//        System.out.println("=============hardCode=============");
+//        hardCode();
+//        System.out.println("=============staticProxy=============");
+//        staticProxy();
+//        System.out.println("=============JDKProxy=============");
+//        dynamicProxy();
         System.out.println("=============CGLibProxy=============");
         cglibDynamicProxy();
     }
@@ -51,15 +52,17 @@ public class Client {
         Action proxy = dynamicProxy.getProxy();
 		System.out.println("代理对象：" + proxy.getClass());
         proxy.add("object");
-        dynamicProxy.setTarget(new CacheImpl());
+        dynamicProxy.setTarget(new NoInterfaceAction());
         System.out.println("代理对象：" + proxy.getClass());
         proxy.add("object");
     }
 
     private static void cglibDynamicProxy(){
         CacheImpl cacheImpl = CGLibDynamicProxy.getInstance().getProxy(CacheImpl.class);
+        System.out.println("代理对象：" + cacheImpl.getClass());
         cacheImpl.add("object");
         DateSourceImpl dateSourceImpl = CGLibDynamicProxy.getInstance().getProxy(DateSourceImpl.class);
+        System.out.println("代理对象：" + dateSourceImpl.getClass());
         dateSourceImpl.add("object");
     }
 }

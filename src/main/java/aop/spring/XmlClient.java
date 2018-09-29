@@ -1,7 +1,6 @@
 package aop.spring;
 
 import aop.Action;
-import aop.impl.PureImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -27,9 +26,7 @@ public class XmlClient {
 
     private static void introductionAdvice(){
         ApplicationContext context = new ClassPathXmlApplicationContext("config/spring/local/appcontext-core.xml"); // 获取 Spring Context
-        PureImpl action = (PureImpl) context.getBean("introductionProxy");                        // 从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）
-        action.add("object");
-        Alarm alarm = (Alarm) action;
+        Alarm alarm = (Alarm) context.getBean("introductionProxy");                        // 从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）
         alarm.sendMail();
     }
 

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PureImpl implements Action {
+
+
 	@Override
 	public <T> void add(T t) {
 		System.out.println("add " + t + " to somewhere by pureImpl");
