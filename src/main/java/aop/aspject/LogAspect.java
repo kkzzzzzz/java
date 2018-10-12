@@ -3,6 +3,7 @@ package aop.aspject;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
  */
 @Aspect
 @Component
+@Order(value = 1)
 public class LogAspect {
     
     @Around("@annotation(aop.annotion.Log)")
@@ -24,6 +26,9 @@ public class LogAspect {
         ArrayList s = new ArrayList();
 		for (int i = 0; i < args.length; i++) {
 			s.add(args[i]);
+		}
+		if (args.length > 1) {
+			return;
 		}
 		System.out.println("do log : args: " + s.toString());
         try {

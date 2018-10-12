@@ -20,6 +20,8 @@ public class AopConfigClient {
         ApplicationContext context = new ClassPathXmlApplicationContext("config/spring/local/appcontext-core.xml"); // 获取 Spring Context
         AopConfigInterface action = (AopConfigInterface) context.getBean("impl1");                        // 从 Context 中根据 id 获取 Bean 对象（其实就是一个代理）
         action.add("object");
+
+        System.out.println("__________");
         action.print("hello");
     }
 

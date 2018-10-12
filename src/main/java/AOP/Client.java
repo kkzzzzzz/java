@@ -61,7 +61,7 @@ public class Client {
         CacheImpl cacheImpl = CGLibDynamicProxy.getInstance().getProxy(CacheImpl.class);
         System.out.println("代理对象：" + cacheImpl.getClass());
         cacheImpl.add("object");
-        DateSourceImpl dateSourceImpl = CGLibDynamicProxy.getInstance().getProxy(DateSourceImpl.class);
+        NoInterfaceAction dateSourceImpl = CGLibDynamicProxy.getInstance().getProxy(NoInterfaceAction.class);
         System.out.println("代理对象：" + dateSourceImpl.getClass());
         dateSourceImpl.add("object");
     }

@@ -12,16 +12,20 @@
 
 	<context:annotation-config/>
 
-	<!--<aop:aspectj-autoproxy/>-->
+	<aop:aspectj-autoproxy/>
 
-	<!--<bean id="timeHandler" class="aop.aopconfig.TimeAspect" />-->
-	<aop:config>
-		<aop:aspect id="time" ref="timeAspect">
-			<aop:pointcut id="addAllMethod" expression="execution(* aop.aopconfig.AopConfigInterface.*(..))" />
-			<aop:before method="printTime" pointcut-ref="addAllMethod" />
-			<aop:after method="printTime" pointcut-ref="addAllMethod" />
-		</aop:aspect>
-	</aop:config>
+	<!--<aop:config>-->
+		<!--<aop:aspect id="time" ref="timeHandler" order="2">-->
+			<!--<aop:pointcut id="addTime" expression="execution(* aop.aopconfig.AopConfigInterface.add(..))" />-->
+			<!--<aop:before method="printTime" pointcut-ref="addTime" />-->
+			<!--<aop:after method="printTime" pointcut-ref="addTime" />-->
+		<!--</aop:aspect>-->
+		<!--<aop:aspect id="permission" ref="permissionHandler" order="1">-->
+			<!--<aop:pointcut id="permissionCheck" expression="execution(* aop.aopconfig.AopConfigInterface.*(..))" />-->
+			<!--<aop:before method="check" pointcut-ref="permissionCheck" />-->
+			<!--&lt;!&ndash;<aop:after method="check" pointcut-ref="permissionCheck" />&ndash;&gt;-->
+		<!--</aop:aspect>-->
+	<!--</aop:config>-->
 
 	<context:component-scan base-package="aop"/>
 
@@ -33,22 +37,8 @@
 				<value>actionAroundAdvice</value>
 			</list>
 		</property>
+		<property name="proxyTargetClass" value="false"/>  <!-- 代理目标类pureImpl 这个时候会用 cglib代理而不是jdk的	（默认为 false，代理接口） -->
 	</bean>
-
-
-	<bean id="introductionProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="interfaces" value="aop.spring.Alarm"/> <!-- 需要代理的接口 -->
-		<property name="target" ref="pureImpl"/>         <!-- 接口实现类 -->
-		<property name="interceptorNames">               <!-- 拦截器名称（也就是增强类名称，Spring Bean 的 id） -->
-			<list>
-				<value>actionIntroductionAdvice</value>
-			</list>
-		</property>
-		<property name="proxyTargetClass" value="true"/>  <!-- 代理目标类pureImpl 这个时候会用 cglib代理而不是jdk的	（默认为 false，代理接口） -->
-	</bean>
-
-
-
 
 
 
