@@ -22,10 +22,10 @@ public class Client {
 //        hardCode();
 //        System.out.println("=============staticProxy=============");
 //        staticProxy();
-//        System.out.println("=============JDKProxy=============");
-//        dynamicProxy();
-        System.out.println("=============CGLibProxy=============");
-        cglibDynamicProxy();
+        System.out.println("=============JDKProxy=============");
+        dynamicProxy();
+//        System.out.println("=============CGLibProxy=============");
+//        cglibDynamicProxy();
     }
 
     private static void hardCode(){
@@ -52,9 +52,9 @@ public class Client {
         Action proxy = dynamicProxy.getProxy();
 		System.out.println("代理对象：" + proxy.getClass());
         proxy.add("object");
-        dynamicProxy.setTarget(new NoInterfaceAction());
-        System.out.println("代理对象：" + proxy.getClass());
-        proxy.add("object");
+//        dynamicProxy.setTarget(new NoInterfaceAction());
+//        System.out.println("代理对象：" + proxy.getClass());
+//        proxy.add("object");
     }
 
     private static void cglibDynamicProxy(){

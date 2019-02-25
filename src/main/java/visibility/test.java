@@ -20,16 +20,15 @@ public class test {
 
 					i++;
 					// 会强制刷新主内存的变量值到线程栈?
-					// synchronized (this) { }
-
+//					 synchronized (this) { }
 //					System.out.println("1");
-					// println 是synchronized的,会强制刷新主内存的变量值到线程栈?
+					// println 是synchronized的,会强制刷新主内存的变量值到线程栈
 					// sleep 会从新load主内存的值?
-					try {
-						TimeUnit.MICROSECONDS.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+//					try {
+//						TimeUnit.MICROSECONDS.sleep(1);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
 				}
 			}
 		}).start();
