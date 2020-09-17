@@ -1,0 +1,1 @@
+package ProducerAndConsumerModel;/** * Created with IntelliJ IDEA. * Project: test-jar * Author: Kevin * Date: 2019/3/5 * Time: 3:31 PM */public interface Consumer {	void consume() throws InterruptedException;}

@@ -1,0 +1,1 @@
+package ProducerAndConsumerModel;/** * Created with IntelliJ IDEA. * Project: test-jar * Author: Kevin * Date: 2019/3/5 * Time: 5:42 PM */public abstract class AbstractConsumer implements Runnable, Consumer{	@Override	public void run() {		while (true){			try {				consume();			} catch (InterruptedException e) {				e.printStackTrace();				break;			}		}	}}

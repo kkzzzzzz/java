@@ -1,0 +1,1 @@
+package ProducerAndConsumerModel;/** * Created with IntelliJ IDEA. * Project: test-jar * Author: Kevin * Date: 2019/3/5 * Time: 5:43 PM */public abstract class AbstarchProducer implements Runnable, Producer{	@Override	public void run() {		while (true) {			try {				produce();			} catch (InterruptedException e) {				e.printStackTrace();				break;			}		}	}}

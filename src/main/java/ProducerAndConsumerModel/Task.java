@@ -1,0 +1,1 @@
+package ProducerAndConsumerModel;/** * Created with IntelliJ IDEA. * Project: test-jar * Author: Kevin * Date: 2019/3/5 * Time: 5:46 PM */public class Task {	public int no;	public Task(int no) {		this.no = no;	}}
